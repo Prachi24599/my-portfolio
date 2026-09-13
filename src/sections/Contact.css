@@ -9,7 +9,7 @@
 }
 
 .contact__content {
-  max-width: 72ch;
+  max-width: 64ch;
 }
 
 .contact__label {
@@ -23,12 +23,15 @@
 }
 
 .contact h2 {
-  max-width: 18ch;
+  max-width: 16ch;
   margin-inline: auto;
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h2);
 }
 
 .contact__description {
-  max-width: 60ch;
+  max-width: 52ch;
   margin: var(--space-6) auto 0;
   font-size: var(--font-size-large-body);
   line-height: var(--line-height-large-body);
@@ -41,9 +44,9 @@
 .contact__email {
   margin-top: var(--space-6);
   color: var(--color-text-secondary);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-caption);
   font-style: normal;
-  line-height: var(--line-height-small);
+  line-height: var(--line-height-caption);
 }
 
 .contact__email a {
