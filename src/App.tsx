@@ -3,10 +3,12 @@ import Hero from './sections/Hero'
 
 function App() {
   return (
-    <main className="app">
+    <>
       <Navbar />
-      <Hero />
-    </main>
+      <main className="app">
+        <Hero />
+      </main>
+    </>
   )
 }
 
