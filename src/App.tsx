@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import About from './sections/About'
+import Experience from './sections/Experience'
 import Hero from './sections/Hero'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <main className="app">
         <Hero />
         <About />
+        <Experience />
       </main>
     </>
   )
