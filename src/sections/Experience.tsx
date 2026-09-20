@@ -6,29 +6,26 @@ const experiences = [
   {
     role: 'Software Engineer II',
     company: 'Deloitte USI',
-    location: 'Pune, India',
-    period: 'Jan 2025 — Present',
+    location: 'Pune',
+    period: '2025 — Present',
     description:
-      'Building enterprise web applications and AI-assisted workflows with a strong focus on frontend architecture, responsive interfaces, and user experience.',
-    technologies: ['React', 'TypeScript', 'Next.js', 'WebSockets'],
+      'Building enterprise applications using React, TypeScript and modern web technologies. Working on data visualization, AI-assisted workflows, real-time interfaces and document-processing applications.',
   },
   {
     role: 'Software Developer',
     company: 'HTS',
     location: 'Pune, India',
-    period: 'Nov 2023 — Dec 2024',
+    period: '2023 — 2024',
     description:
-      'Developed CRM and workflow applications for real-estate operations, improving lead management, document workflows, and internal productivity.',
-    technologies: ['React', 'JavaScript', 'Redux', 'Node.js', 'PostgreSQL'],
+      'Developed customer-facing and internal business applications for real-estate workflows.',
   },
   {
     role: 'Project Engineer',
     company: 'Wipro',
     location: 'Pune, India',
-    period: 'Jun 2021 — Nov 2023',
+    period: '2021 — 2023',
     description:
-      'Worked on enterprise insurance applications, contributing to frontend development and supporting reliable delivery across an established engineering environment.',
-    technologies: ['React', 'Redux', 'Webpack', 'Jenkins', 'AWS'],
+      'Worked on enterprise applications in the insurance domain, contributing to application support, frontend development and engineering workflows.',
   },
 ]
 
@@ -46,21 +43,14 @@ function ExperienceEntry({
       ref={ref}
       className={`experience__entry reveal reveal-delay-${Math.min(index + 1, 3)} ${isInView ? 'is-visible' : ''}`}
     >
-      <div className="experience__meta">
-        <h3>{experience.role}</h3>
-        <p className="experience__company">{experience.company}</p>
-        <p className="experience__location">{experience.location}</p>
-        <p className="experience__period">{experience.period}</p>
-      </div>
-
-      <div className="experience__details">
-        <p className="experience__description">{experience.description}</p>
-        <ul className="experience__technologies">
-          {experience.technologies.map((technology) => (
-            <li key={technology}>{technology}</li>
-          ))}
-        </ul>
-      </div>
+        <div className="experience__card">
+          <p className="experience__period">{experience.period}</p>
+          <h3>{experience.role}</h3>
+          <p className="experience__company">
+            {experience.company} · {experience.location}
+          </p>
+          <p className="experience__description">{experience.description}</p>
+        </div>
     </article>
   )
 }
@@ -73,7 +63,7 @@ function Experience() {
       <Container className="experience__container">
         <div className="experience__heading">
           <p className="experience__label">03 -- </p>
-          <h2>Where I&apos;ve built and shipped software.</h2>
+          <h2>Experience</h2>
         </div>
 
         <div ref={ref} className={`experience__entries ${isInView ? 'is-visible' : ''}`}>
