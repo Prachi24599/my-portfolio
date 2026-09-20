@@ -142,3 +142,70 @@
   justify-self: start;
   margin-top: var(--space-4);
 }
+
+@media (max-width: 1024px) {
+  .contact__container {
+    gap: var(--space-8);
+  }
+
+  .contact__form {
+    padding: var(--space-6);
+  }
+
+  .contact__detail a,
+  .contact__detail p,
+  .contact__form label,
+  .contact__form input,
+  .contact__form textarea {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .contact__content,
+  .contact__form {
+    min-width: 0;
+  }
+
+  .contact h2,
+  .contact__description {
+    max-width: 60ch;
+  }
+
+  .contact__details {
+    margin-top: var(--space-6);
+  }
+
+  .contact__form {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__container {
+    gap: var(--space-6);
+  }
+
+  .contact__form {
+    padding: var(--space-4);
+  }
+
+  .contact__detail {
+    padding-inline: var(--space-4);
+  }
+
+  .contact__details {
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .contact__content > .button,
+  .contact__form .button {
+    max-width: 100%;
+  }
+}
