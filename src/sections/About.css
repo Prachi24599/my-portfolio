@@ -4,12 +4,19 @@
 
 .about__container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-12);
+  justify-items: start;
+}
+
+.about__main {
+  width: 100%;
+  max-width: 72ch;
 }
 
 .about__heading {
-  padding-right: var(--space-8);
+  width: 100%;
+  padding-right: 0;
 }
 
 .about__label {
@@ -27,8 +34,8 @@
 }
 
 .about__content {
-  border-left: 1px solid var(--color-border);
-  padding-left: var(--space-16);
+  width: 100%;
+  margin-top: var(--space-6);
 }
 
 .about__content p {
@@ -39,6 +46,120 @@
 
 .about__content p + p {
   margin-top: var(--space-6);
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 108px);
+  grid-template-rows: repeat(3, 108px);
+  column-gap: var(--space-20);
+  row-gap: var(--space-3);
+  justify-content: center;
+  width: 100%;
+  align-self: center;
+}
+
+.about__stat-card {
+  display: flex;
+  aspect-ratio: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-default);
+  padding: var(--space-2);
+  text-align: center;
+  background-color: var(--color-surface);
+  transition:
+    transform 500ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.about__stats .about__stat-card {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.about__stats.is-visible .about__stat-card {
+  animation:
+    about-stat-enter 500ms ease forwards,
+    about-stat-breathe 2.8s ease-in-out 700ms infinite,
+    about-stat-float 3s ease-in-out 700ms infinite;
+  translate: 0 0;
+}
+
+.about__stats.is-visible .about__stat-card:nth-child(2) {
+  animation-delay: 100ms, 900ms, 1100ms;
+}
+
+.about__stats.is-visible .about__stat-card:nth-child(3) {
+  animation-delay: 200ms, 1100ms, 1300ms;
+}
+
+.about__stats .about__stat-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.about__stats .about__stat-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.about__stats .about__stat-card:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.about__stat-card:hover {
+  border-color: var(--color-accent-hover);
+  box-shadow: 0 8px 24px rgb(124 58 237 / 18%);
+  transform: translateY(-3px) scale(1.02);
+}
+
+@keyframes about-stat-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-stat-breathe {
+  0%,
+  42%,
+  58%,
+  100% {
+    box-shadow: 0 0 0 rgb(124 58 237 / 0%);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgb(124 58 237 / 34%);
+  }
+}
+
+@keyframes about-stat-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+.about__stat-card strong {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+.about__stat-card span {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
 }
 
 .about__technologies {
@@ -63,16 +184,26 @@
   .about__container {
     gap: var(--space-12);
   }
-
-  .about__content {
-    padding-left: var(--space-12);
-  }
 }
 
 @media (max-width: 768px) {
   .about__container {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: 0;
+  }
+
+  .about__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: none;
+    max-width: none;
+    margin-top: var(--space-8);
+  }
+
+  .about__stats .about__stat-card:nth-child(1),
+  .about__stats .about__stat-card:nth-child(2),
+  .about__stats .about__stat-card:nth-child(3) {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .about__heading {
@@ -95,11 +226,16 @@
   .about__technologies {
     margin-top: var(--space-6);
   }
+
+  .about__stats {
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
 }
 
 @media (max-width: 480px) {
   .about__container {
-    gap: var(--space-6);
+    gap: 0;
   }
 
   .about__content p + p {
@@ -110,5 +246,29 @@
     column-gap: var(--space-4);
     row-gap: var(--space-2);
     margin-top: var(--space-6);
+  }
+
+  .about__stats {
+    gap: var(--space-2);
+  }
+
+  .about__stat-card {
+    padding: var(--space-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__stat-card {
+    transition: none;
+  }
+
+  .about__stat-card:hover {
+    transform: none;
+  }
+
+  .about__stats .about__stat-card {
+    opacity: 1;
+    animation: none;
+    transform: none;
   }
 }
