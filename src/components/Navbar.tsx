@@ -1,9 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from './Container'
 import './Navbar.css'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('top')
+
+  useEffect(() => {
+    const sections = ['top', 'about', 'skills', 'experience', 'contact']
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (first, second) =>
+              first.boundingClientRect.top - second.boundingClientRect.top,
+          )[0]
+
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id)
+        }
+      },
+      { rootMargin: '-25% 0px -65% 0px', threshold: 0 },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   const closeMenu = () => setIsMenuOpen(false)
 
@@ -17,24 +44,52 @@ function Navbar() {
         <nav className="navbar__desktop-nav" aria-label="Primary navigation">
           <ul className="navbar__links">
             <li>
-              <a className="navbar__link--active" href="#top" aria-current="page">
+              <a
+                className={activeSection === 'top' ? 'navbar__link--active' : ''}
+                href="#top"
+                aria-current={activeSection === 'top' ? 'page' : undefined}
+              >
                 Home
               </a>
             </li>
             <li>
-              <a href="#about">About</a>
+              <a
+                className={activeSection === 'about' ? 'navbar__link--active' : ''}
+                href="#about"
+                aria-current={activeSection === 'about' ? 'page' : undefined}
+              >
+                About
+              </a>
             </li>
             <li>
-              <a href="#skills">Skills</a>
+              <a
+                className={activeSection === 'skills' ? 'navbar__link--active' : ''}
+                href="#skills"
+                aria-current={activeSection === 'skills' ? 'page' : undefined}
+              >
+                Skills
+              </a>
             </li>
             <li>
-              <a href="#experience">Experience</a>
+              <a
+                className={activeSection === 'experience' ? 'navbar__link--active' : ''}
+                href="#experience"
+                aria-current={activeSection === 'experience' ? 'page' : undefined}
+              >
+                Experience
+              </a>
             </li>
             {/* <li>
               <a href="#projects">Projects</a>
             </li> */}
             <li>
-              <a href="#contact">Contact</a>
+              <a
+                className={activeSection === 'contact' ? 'navbar__link--active' : ''}
+                href="#contact"
+                aria-current={activeSection === 'contact' ? 'page' : undefined}
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </nav>
@@ -73,22 +128,42 @@ function Navbar() {
         className={`navbar__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}
         aria-label="Mobile navigation"
       >
-        <a className="navbar__link--active" href="#top" onClick={closeMenu}>
+        <a
+          className={activeSection === 'top' ? 'navbar__link--active' : ''}
+          href="#top"
+          onClick={closeMenu}
+        >
           Home
         </a>
-        <a href="#about" onClick={closeMenu}>
+        <a
+          className={activeSection === 'about' ? 'navbar__link--active' : ''}
+          href="#about"
+          onClick={closeMenu}
+        >
           About
         </a>
-        <a href="#skills" onClick={closeMenu}>
+        <a
+          className={activeSection === 'skills' ? 'navbar__link--active' : ''}
+          href="#skills"
+          onClick={closeMenu}
+        >
           Skills
         </a>
-        <a href="#experience" onClick={closeMenu}>
+        <a
+          className={activeSection === 'experience' ? 'navbar__link--active' : ''}
+          href="#experience"
+          onClick={closeMenu}
+        >
           Experience
         </a>
         {/* <a href="#projects" onClick={closeMenu}>
           Projects
         </a> */}
-        <a href="#contact" onClick={closeMenu}>
+        <a
+          className={activeSection === 'contact' ? 'navbar__link--active' : ''}
+          href="#contact"
+          onClick={closeMenu}
+        >
           Contact
         </a>
         <a href="mailto:polakhare.prachi@gmail.com" onClick={closeMenu}>
