@@ -197,7 +197,8 @@
   }
 
   .navbar__mobile-nav a:hover,
-  .navbar__mobile-nav a:focus-visible {
+  .navbar__mobile-nav a:focus-visible,
+  .navbar__mobile-nav a.navbar__link--active {
     color: var(--color-accent-hover);
   }
 
