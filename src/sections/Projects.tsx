@@ -8,21 +8,21 @@ const projects = [
     description:
       'An interactive enterprise application for exploring and manipulating supply-chain relationships across a large knowledge graph.',
     technologies: ['React', 'TypeScript', 'Neo4j', 'Cypher', 'WebSockets'],
-    cta: 'View project',
+    // cta: 'View project',
   },
   {
     title: 'Submission Intake',
     description:
       'A workflow interface for uploading, previewing, analyzing, and managing insurance submission documents and extracted attributes.',
     technologies: ['React', 'TypeScript', 'MUI', 'REST APIs'],
-    cta: 'View project',
+    // cta: 'View project',
   },
   {
     title: 'Auto Advisor',
     description:
       'An interactive insurance assistant interface supporting text and voice-based interactions with real-time responses.',
     technologies: ['React', 'TypeScript', 'WebSockets', 'AI'],
-    cta: 'View project',
+    // cta: 'View project',
   },
 ]
 
@@ -51,13 +51,13 @@ function ProjectItem({
             <li key={technology}>{technology}</li>
           ))}
         </ul>
-        <a
+        {/* <a
           className="projects__link"
           href="#contact"
           aria-label={`${project.cta} for ${project.title}`}
         >
           {project.cta}
-        </a>
+        </a> */}
       </div>
     </article>
   )
