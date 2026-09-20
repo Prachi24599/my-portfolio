@@ -265,6 +265,19 @@
     padding-block: var(--space-16);
   }
 
+  .hero__container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__content {
+    min-width: 0;
+  }
+
+  .hero__eyebrow {
+    max-width: 100%;
+    white-space: normal;
+  }
+
   .hero h1 {
     max-width: 12ch;
   }
@@ -286,6 +299,15 @@
     max-width: 320px;
   }
 
+  .hero__actions .button--outline {
+    margin-top: var(--space-2);
+  }
+
+  .hero__socials {
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+  }
+
   .hero__code-panel {
     display: none;
   }
@@ -298,6 +320,7 @@
 
   .hero h1 {
     max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .hero__description {
@@ -305,7 +328,17 @@
     font-size: var(--font-size-body);
   }
 
+  .hero__eyebrow {
+    align-items: center;
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+  }
+
   .hero__actions .button {
     max-width: none;
+  }
+
+  .hero__socials {
+    gap: var(--space-3) var(--space-4);
   }
 }
