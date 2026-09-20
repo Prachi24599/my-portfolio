@@ -11,7 +11,7 @@ function Navbar() {
     <header className="navbar">
       <Container className="navbar__container">
         <a className="navbar__brand" href="#top">
-          Prachi.Dev
+          Prachi.dev
         </a>
 
         <nav className="navbar__desktop-nav" aria-label="Primary navigation">
