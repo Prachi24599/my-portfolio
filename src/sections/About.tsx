@@ -20,22 +20,18 @@ function About() {
 
           <div className={`about__content reveal reveal-delay-2 ${isInView ? 'is-visible' : ''}`}>
             <p>
-              I&apos;m a Full-Stack AI Engineer focused on building modern web
-              applications, enterprise products, and AI-powered experiences. Over
-              the past 5+ years, I&apos;ve worked across frontend and backend
-              development, API integration, real-time applications, dashboards,
-              business workflows, and AI-driven features.
+              I&apos;m a Full-Stack AI Engineer building modern web applications,
+              enterprise products, and AI-powered experiences. With 5+ years of
+              experience, I&apos;ve worked across frontend, backend, APIs, real-time
+              applications, dashboards, and business workflows.
             </p>
             <p>
-              I work across the stack with React, TypeScript, Node.js, REST APIs,
-              databases, and Generative AI. I enjoy turning complex requirements
-              into scalable applications and integrating AI capabilities into
-              intuitive, production-ready user experiences.
+              I work with React, TypeScript, Node.js, REST APIs, databases, and
+              Generative AI to build scalable, production-ready applications.
             </p>
             <p>
-              I care about writing maintainable code, designing scalable
-              solutions, creating intuitive experiences, and improving
-              application performance and reliability.
+              I care about maintainable code, intuitive experiences, scalability,
+              and performance.
             </p>
           </div>
 
