@@ -293,7 +293,7 @@ pre {
 
 @media (max-width: 768px) {
   :root {
-    --font-size-hero: clamp(1.5rem, 6vw, 3  rem);
+    --font-size-hero: clamp(1.5rem, 6vw, 3rem);
     --font-size-h2: clamp(1.875rem, 6vw, 2.75rem);
   }
 

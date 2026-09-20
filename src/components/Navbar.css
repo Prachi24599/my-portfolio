@@ -223,3 +223,9 @@
     padding-inline: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar__mobile-nav {
+    padding-inline: 16px;
+  }
+}
