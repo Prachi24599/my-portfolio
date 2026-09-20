@@ -26,7 +26,11 @@ function Navbar() {
           </ul>
         </nav>
 
-        <a className="button button--primary navbar__resume" href="/resume.pdf" download>
+        <a
+          className="button button--primary navbar__resume"
+          href="/Prachi_Polakhare_Resume.pdf"
+          download="Prachi_Polakhare_Resume.pdf"
+        >
           <svg
             className="navbar__resume-icon"
             viewBox="0 0 24 24"
