@@ -74,9 +74,9 @@ function Hero() {
           <pre className="hero__code-body">
             <code>
               <span className="hero__code-line"><i>const</i> developer = {'{'}</span>
-              <span className="hero__code-line">  name: <b>&apos;Aarav Mehta&apos;</b>,</span>
+              <span className="hero__code-line">  name: <b>&apos;Prachi Polakhare&apos;</b>,</span>
               <span className="hero__code-line">  role: <b>&apos;Software Developer&apos;</b>,</span>
-              <span className="hero__code-line">  stack: [<b>&apos;React&apos;</b>, <b>&apos;TS&apos;</b>, <b>&apos;Node&apos;</b>],</span>
+              <span className="hero__code-line">  stack: [<b>&apos;React&apos;</b>, <b>&apos;Next.js&apos;</b>, <b>&apos;TS&apos;</b>, <b>&apos;Node&apos;</b>],</span>
               <span className="hero__code-line">  location: <b>&apos;Berlin&apos;</b>,</span>
               <span className="hero__code-line">  available: <em>true</em>,</span>
               <span className="hero__code-line">{'}'}</span>
