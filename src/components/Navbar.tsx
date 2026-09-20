@@ -11,20 +11,28 @@ function Navbar() {
     <header className="navbar">
       <Container className="navbar__container">
         <a className="navbar__brand" href="#top">
-          Prachi.Dev
+          Prachi.dev
         </a>
 
         <nav className="navbar__desktop-nav" aria-label="Primary navigation">
           <ul className="navbar__links">
             <li>
+              <a className="navbar__link--active" href="#top" aria-current="page">
+                Home
+              </a>
+            </li>
+            <li>
               <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#skills">Skills</a>
             </li>
             <li>
               <a href="#experience">Experience</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#projects">Projects</a>
-            </li>
+            </li> */}
             <li>
               <a href="#contact">Contact</a>
             </li>
@@ -65,15 +73,21 @@ function Navbar() {
         className={`navbar__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}
         aria-label="Mobile navigation"
       >
+        <a className="navbar__link--active" href="#top" onClick={closeMenu}>
+          Home
+        </a>
         <a href="#about" onClick={closeMenu}>
           About
+        </a>
+        <a href="#skills" onClick={closeMenu}>
+          Skills
         </a>
         <a href="#experience" onClick={closeMenu}>
           Experience
         </a>
-        <a href="#projects" onClick={closeMenu}>
+        {/* <a href="#projects" onClick={closeMenu}>
           Projects
-        </a>
+        </a> */}
         <a href="#contact" onClick={closeMenu}>
           Contact
         </a>
