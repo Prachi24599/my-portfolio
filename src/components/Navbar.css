@@ -1,0 +1,94 @@
+.navbar {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.navbar__container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  min-height: var(--space-16);
+  gap: var(--space-8);
+}
+
+.navbar__brand {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h3);
+  transition: color 180ms ease;
+}
+
+.navbar__brand:hover {
+  color: var(--color-accent-hover);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__links a {
+  position: relative;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-small);
+  transition: color 180ms ease;
+}
+
+.navbar__links a:hover {
+  color: var(--color-text-primary);
+}
+
+.navbar__links a::after {
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--space-2) * -1);
+  left: 0;
+  height: 1px;
+  background-color: var(--color-accent-hover);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.navbar__links a:hover::after,
+.navbar__links a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar__brand:focus-visible,
+.navbar__links a:focus-visible,
+.navbar__resume:focus-visible {
+  outline: 2px solid var(--color-accent-hover);
+  outline-offset: var(--space-1);
+}
+
+.navbar__resume {
+  gap: var(--space-2);
+}
+
+.navbar__resume-icon {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__links a::after {
+    transition: none;
+  }
+}
