@@ -30,9 +30,9 @@ function Navbar() {
             <li>
               <a href="#experience">Experience</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#projects">Projects</a>
-            </li>
+            </li> */}
             <li>
               <a href="#contact">Contact</a>
             </li>
@@ -85,9 +85,9 @@ function Navbar() {
         <a href="#experience" onClick={closeMenu}>
           Experience
         </a>
-        <a href="#projects" onClick={closeMenu}>
+        {/* <a href="#projects" onClick={closeMenu}>
           Projects
-        </a>
+        </a> */}
         <a href="#contact" onClick={closeMenu}>
           Contact
         </a>
