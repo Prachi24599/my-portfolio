@@ -35,6 +35,7 @@
 }
 
 .navbar__links a {
+  position: relative;
   color: var(--color-text-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
@@ -44,6 +45,25 @@
 
 .navbar__links a:hover {
   color: var(--color-text-primary);
+}
+
+.navbar__links a::after {
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--space-2) * -1);
+  left: 0;
+  height: 1px;
+  background-color: var(--color-accent-hover);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.navbar__links a:hover::after,
+.navbar__links a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .navbar__brand:focus-visible,
@@ -65,4 +85,10 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__links a::after {
+    transition: none;
+  }
 }

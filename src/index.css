@@ -151,6 +151,20 @@ button:not(:disabled):hover {
   transform: translateY(-1px);
 }
 
+.page-entrance {
+  animation: page-entrance 600ms ease both;
+}
+
+@keyframes page-entrance {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -191,6 +205,10 @@ button:not(:disabled):hover {
 
   button:not(:disabled):hover {
     transform: none;
+  }
+
+  .page-entrance {
+    animation: none;
   }
 
   .reveal,

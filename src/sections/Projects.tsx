@@ -1,4 +1,5 @@
 import Container from '../components/Container'
+import useInView from '../hooks/useInView'
 import './Projects.css'
 
 const projects = [
@@ -25,9 +26,52 @@ const projects = [
   },
 ]
 
-function Projects() {
+function ProjectItem({
+  project,
+  index,
+}: {
+  project: (typeof projects)[number]
+  index: number
+}) {
+  const { ref, isInView } = useInView<HTMLElement>()
+
   return (
-    <section id="projects" className="projects section">
+    <article
+      ref={ref}
+      className={`projects__project reveal reveal-delay-${Math.min(index + 1, 3)} ${isInView ? 'is-visible' : ''}`}
+    >
+      <div className="projects__meta">
+        <h3>{project.title}</h3>
+      </div>
+
+      <div className="projects__details">
+        <p className="projects__description">{project.description}</p>
+        <ul className="projects__technologies">
+          {project.technologies.map((technology) => (
+            <li key={technology}>{technology}</li>
+          ))}
+        </ul>
+        <a
+          className="projects__link"
+          href="#contact"
+          aria-label={`${project.cta} for ${project.title}`}
+        >
+          {project.cta}
+        </a>
+      </div>
+    </article>
+  )
+}
+
+function Projects() {
+  const { ref, isInView } = useInView<HTMLElement>()
+
+  return (
+    <section
+      id="projects"
+      ref={ref}
+      className={`projects section ${isInView ? 'is-visible' : ''}`}
+    >
       <Container className="projects__container">
         <div className="projects__heading">
           <p className="projects__label">PROJECTS</p>
@@ -35,28 +79,8 @@ function Projects() {
         </div>
 
         <div className="projects__list">
-          {projects.map((project) => (
-            <article className="projects__project" key={project.title}>
-              <div className="projects__meta">
-                <h3>{project.title}</h3>
-              </div>
-
-              <div className="projects__details">
-                <p className="projects__description">{project.description}</p>
-                <ul className="projects__technologies">
-                  {project.technologies.map((technology) => (
-                    <li key={technology}>{technology}</li>
-                  ))}
-                </ul>
-                <a
-                  className="projects__link"
-                  href="#contact"
-                  aria-label={`${project.cta} for ${project.title}`}
-                >
-                  {project.cta}
-                </a>
-              </div>
-            </article>
+          {projects.map((project, index) => (
+            <ProjectItem key={project.title} project={project} index={index} />
           ))}
         </div>
       </Container>

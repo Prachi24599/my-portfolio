@@ -1,4 +1,5 @@
 import Container from '../components/Container'
+import useInView from '../hooks/useInView'
 import './Experience.css'
 
 const experiences = [
@@ -31,7 +32,42 @@ const experiences = [
   },
 ]
 
+function ExperienceEntry({
+  experience,
+  index,
+}: {
+  experience: (typeof experiences)[number]
+  index: number
+}) {
+  const { ref, isInView } = useInView<HTMLElement>()
+
+  return (
+    <article
+      ref={ref}
+      className={`experience__entry reveal reveal-delay-${Math.min(index + 1, 3)} ${isInView ? 'is-visible' : ''}`}
+    >
+      <div className="experience__meta">
+        <h3>{experience.role}</h3>
+        <p className="experience__company">{experience.company}</p>
+        <p className="experience__location">{experience.location}</p>
+        <p className="experience__period">{experience.period}</p>
+      </div>
+
+      <div className="experience__details">
+        <p className="experience__description">{experience.description}</p>
+        <ul className="experience__technologies">
+          {experience.technologies.map((technology) => (
+            <li key={technology}>{technology}</li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  )
+}
+
 function Experience() {
+  const { ref, isInView } = useInView<HTMLDivElement>()
+
   return (
     <section id="experience" className="experience section">
       <Container className="experience__container">
@@ -40,25 +76,13 @@ function Experience() {
           <h2>Where I&apos;ve built and shipped software.</h2>
         </div>
 
-        <div className="experience__entries">
-          {experiences.map((experience) => (
-            <article className="experience__entry" key={`${experience.company}-${experience.role}`}>
-              <div className="experience__meta">
-                <h3>{experience.role}</h3>
-                <p className="experience__company">{experience.company}</p>
-                <p className="experience__location">{experience.location}</p>
-                <p className="experience__period">{experience.period}</p>
-              </div>
-
-              <div className="experience__details">
-                <p className="experience__description">{experience.description}</p>
-                <ul className="experience__technologies">
-                  {experience.technologies.map((technology) => (
-                    <li key={technology}>{technology}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
+        <div ref={ref} className={`experience__entries ${isInView ? 'is-visible' : ''}`}>
+          {experiences.map((experience, index) => (
+            <ExperienceEntry
+              key={`${experience.company}-${experience.role}`}
+              experience={experience}
+              index={index}
+            />
           ))}
         </div>
       </Container>

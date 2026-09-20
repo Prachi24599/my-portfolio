@@ -41,15 +41,17 @@
 }
 
 .footer__links a {
+  display: inline-block;
   color: var(--color-text-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-small);
-  transition: color 180ms ease;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .footer__links a:hover {
   color: var(--color-accent-hover);
+  transform: translateY(-1px);
 }
 
 .footer__links a:focus-visible {
@@ -60,4 +62,14 @@
 .footer__copyright {
   display: block;
   margin-top: var(--space-8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__links a {
+    transition: none;
+  }
+
+  .footer__links a:hover {
+    transform: none;
+  }
 }

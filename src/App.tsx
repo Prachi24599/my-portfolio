@@ -8,7 +8,7 @@ import Projects from './sections/Projects'
 
 function App() {
   return (
-    <>
+    <div className="page page-entrance">
       <Navbar />
       <main className="app">
         <Hero />
@@ -18,7 +18,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -1,9 +1,11 @@
 import type { FormEvent } from 'react'
 import Button from '../components/Button'
 import Container from '../components/Container'
+import useInView from '../hooks/useInView'
 import './Contact.css'
 
 function Contact() {
+  const { ref, isInView } = useInView<HTMLElement>()
   const handleContactClick = () => {
     window.location.href = 'mailto:polakhare.prachi@gmail.com'
   }
@@ -23,9 +25,13 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="section contact">
+    <section
+      id="contact"
+      ref={ref}
+      className={`section contact ${isInView ? 'is-visible' : ''}`}
+    >
       <Container className="contact__container">
-        <div className="contact__content">
+        <div className="contact__content reveal reveal-delay-1">
           <p className="contact__label">CONTACT</p>
           <h2>Let&apos;s build something meaningful.</h2>
           <p className="contact__description">
@@ -49,7 +55,7 @@ function Contact() {
           <Button onClick={handleContactClick}>Let&apos;s Talk</Button>
         </div>
 
-        <form className="contact__form" onSubmit={handleFormSubmit}>
+        <form className="contact__form reveal reveal-delay-2" onSubmit={handleFormSubmit}>
           <label htmlFor="contact-name">Name</label>
           <input
             id="contact-name"

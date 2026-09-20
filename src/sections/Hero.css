@@ -44,7 +44,27 @@
   text-decoration: none;
 }
 
+.hero__button-arrow {
+  display: inline-block;
+  margin-left: var(--space-2);
+  transition: transform 180ms ease;
+}
+
+.hero__actions .button:hover .hero__button-arrow {
+  transform: translateX(3px);
+}
+
 .hero__actions .button:focus-visible {
   outline: 2px solid var(--color-accent-hover);
   outline-offset: var(--space-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__button-arrow {
+    transition: none;
+  }
+
+  .hero__actions .button:hover .hero__button-arrow {
+    transform: none;
+  }
 }
