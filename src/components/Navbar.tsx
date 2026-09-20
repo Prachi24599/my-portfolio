@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import Container from './Container'
 import './Navbar.css'
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const closeMenu = () => setIsMenuOpen(false)
+
   return (
     <header className="navbar">
       <Container className="navbar__container">
@@ -9,7 +14,7 @@ function Navbar() {
           Prachi.Dev
         </a>
 
-        <nav aria-label="Primary navigation">
+        <nav className="navbar__desktop-nav" aria-label="Primary navigation">
           <ul className="navbar__links">
             <li>
               <a href="#about">About</a>
@@ -40,7 +45,42 @@ function Navbar() {
           </svg>
           Resume
         </a>
+
+        <button
+          className="navbar__menu-button"
+          type="button"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </Container>
+
+      <nav
+        id="mobile-navigation"
+        className={`navbar__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}
+        aria-label="Mobile navigation"
+      >
+        <a href="#about" onClick={closeMenu}>
+          About
+        </a>
+        <a href="#experience" onClick={closeMenu}>
+          Experience
+        </a>
+        <a href="#projects" onClick={closeMenu}>
+          Projects
+        </a>
+        <a href="#contact" onClick={closeMenu}>
+          Contact
+        </a>
+        <a href="mailto:polakhare.prachi@gmail.com" onClick={closeMenu}>
+          Let&apos;s Talk
+        </a>
+      </nav>
     </header>
   )
 }
