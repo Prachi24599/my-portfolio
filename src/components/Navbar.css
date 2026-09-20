@@ -14,7 +14,7 @@
 
 .navbar__brand {
   color: var(--color-text-primary);
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-h4);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-h3);
   transition: color 180ms ease;
@@ -47,6 +47,10 @@
   color: var(--color-text-primary);
 }
 
+.navbar__links a.navbar__link--active {
+  color: var(--color-text-primary);
+}
+
 .navbar__links a::after {
   position: absolute;
   right: 0;
@@ -61,7 +65,8 @@
 }
 
 .navbar__links a:hover::after,
-.navbar__links a:focus-visible::after {
+.navbar__links a:focus-visible::after,
+.navbar__links a.navbar__link--active::after {
   transform: scaleX(1);
   transform-origin: left;
 }

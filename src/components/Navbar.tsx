@@ -17,7 +17,15 @@ function Navbar() {
         <nav className="navbar__desktop-nav" aria-label="Primary navigation">
           <ul className="navbar__links">
             <li>
+              <a className="navbar__link--active" href="#top" aria-current="page">
+                Home
+              </a>
+            </li>
+            <li>
               <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#skills">Skills</a>
             </li>
             <li>
               <a href="#experience">Experience</a>
@@ -65,8 +73,14 @@ function Navbar() {
         className={`navbar__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}
         aria-label="Mobile navigation"
       >
+        <a className="navbar__link--active" href="#top" onClick={closeMenu}>
+          Home
+        </a>
         <a href="#about" onClick={closeMenu}>
           About
+        </a>
+        <a href="#skills" onClick={closeMenu}>
+          Skills
         </a>
         <a href="#experience" onClick={closeMenu}>
           Experience
