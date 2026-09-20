@@ -4,8 +4,8 @@
 
 .about__container {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: var(--space-16);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
 }
 
 .about__heading {

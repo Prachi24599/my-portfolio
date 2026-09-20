@@ -4,7 +4,7 @@
 
 .contact__container {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-12);
   align-items: start;
 }
@@ -145,7 +145,7 @@
 
 @media (max-width: 1024px) {
   .contact__container {
-    gap: var(--space-8);
+    gap: var(--space-12);
   }
 
   .contact__form {

@@ -6,7 +6,7 @@
 
 .hero__container {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: var(--space-12);
   width: 100%;
@@ -246,8 +246,8 @@
   }
 
   .hero__container {
-    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-    gap: var(--space-8);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+    gap: var(--space-12);
   }
 
   .hero__description {

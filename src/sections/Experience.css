@@ -4,8 +4,8 @@
 
 .experience__container {
   display: grid;
-  grid-template-columns: 1fr 1.75fr;
-  gap: var(--space-16);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
 }
 
 .experience__heading {
@@ -148,7 +148,7 @@
   }
 
   .experience__entry {
-    grid-template-columns: minmax(140px, 0.8fr) 1.6fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
   }
 
