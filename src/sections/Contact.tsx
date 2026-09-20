@@ -5,11 +5,21 @@ import './Contact.css'
 
 function Contact() {
   const handleContactClick = () => {
-    window.location.href = 'mailto:your.email@example.com'
+    window.location.href = 'mailto:polakhare.prachi@gmail.com'
   }
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') ?? '')
+    const email = String(formData.get('email') ?? '')
+    const message = String(formData.get('message') ?? '')
+    const subject = `Portfolio inquiry from ${name}`
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`
+
+    window.location.href =
+      `mailto:polakhare.prachi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
@@ -41,7 +51,13 @@ function Contact() {
 
         <form className="contact__form" onSubmit={handleFormSubmit}>
           <label htmlFor="contact-name">Name</label>
-          <input id="contact-name" name="name" type="text" placeholder="Your name" />
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+          />
 
           <label htmlFor="contact-email">Email</label>
           <input
@@ -49,6 +65,7 @@ function Contact() {
             name="email"
             type="email"
             placeholder="your@example.com"
+            required
           />
 
           <label htmlFor="contact-message">Message</label>
@@ -57,6 +74,7 @@ function Contact() {
             name="message"
             rows={5}
             placeholder="Tell me about the role or project..."
+            required
           />
 
           <Button type="submit">Send Message</Button>
