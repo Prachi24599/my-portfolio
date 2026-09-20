@@ -34,6 +34,7 @@
 
 .footer__links {
   display: flex;
+  align-items: center;
   gap: var(--space-6);
   margin: 0;
   padding: 0;
@@ -47,6 +48,20 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-small);
   transition: color 180ms ease, transform 180ms ease;
+}
+
+.footer__socials .footer__links {
+  gap: var(--space-8);
+}
+
+.footer__socials svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .footer__links a:hover {
@@ -100,6 +115,10 @@
 
   .footer__links {
     gap: var(--space-4);
+  }
+
+  .footer__socials .footer__links {
+    gap: var(--space-6);
   }
 
   .footer__copyright {
