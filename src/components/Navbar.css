@@ -47,7 +47,22 @@
 }
 
 .navbar__brand:focus-visible,
-.navbar__links a:focus-visible {
+.navbar__links a:focus-visible,
+.navbar__resume:focus-visible {
   outline: 2px solid var(--color-accent-hover);
   outline-offset: var(--space-1);
+}
+
+.navbar__resume {
+  gap: var(--space-2);
+}
+
+.navbar__resume-icon {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
