@@ -31,6 +31,7 @@
 
 .button--primary:not(:disabled):hover {
   background-color: var(--color-accent-hover);
+  color: var(--color-text-primary);
   transform: translateY(-1px);
 }
 
