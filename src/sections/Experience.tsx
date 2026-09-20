@@ -72,7 +72,7 @@ function Experience() {
     <section id="experience" className="experience section">
       <Container className="experience__container">
         <div className="experience__heading">
-          <p className="experience__label">EXPERIENCE</p>
+          <p className="experience__label">03 -- </p>
           <h2>Where I&apos;ve built and shipped software.</h2>
         </div>
 

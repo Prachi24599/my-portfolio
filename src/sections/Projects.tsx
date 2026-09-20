@@ -74,7 +74,7 @@ function Projects() {
     >
       <Container className="projects__container">
         <div className="projects__heading">
-          <p className="projects__label">PROJECTS</p>
+          <p className="projects__label">04 -- </p>
           <h2>Selected work and products I&apos;ve helped build.</h2>
         </div>
 

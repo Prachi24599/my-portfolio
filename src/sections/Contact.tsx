@@ -32,7 +32,7 @@ function Contact() {
     >
       <Container className="contact__container">
         <div className="contact__content reveal reveal-delay-1">
-          <p className="contact__label">CONTACT</p>
+          <p className="contact__label">05 -- </p>
           <h2>Let&apos;s build something meaningful.</h2>
           <p className="contact__description">
             I&apos;m open to software development opportunities, interesting

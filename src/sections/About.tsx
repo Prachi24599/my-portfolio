@@ -13,7 +13,7 @@ function About() {
     >
       <Container className="about__container">
         <div className={`about__heading reveal reveal-delay-1 ${isInView ? 'is-visible' : ''}`}>
-          <p className="about__label">ABOUT</p>
+          <p className="about__label">01 -- </p>
           <h2>A developer focused on thoughtful, scalable software.</h2>
         </div>
 
