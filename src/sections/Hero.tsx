@@ -26,7 +26,7 @@ function Hero() {
             Berlin, Germany
           </p>
           <div className="hero__actions reveal reveal-delay-3 is-visible">
-            <a className="button button--primary" href="#projects">
+            <a className="button button--primary" href="#experience">
               View My Work <span className="hero__button-arrow" aria-hidden="true">-&gt;</span>
             </a>
             <a
