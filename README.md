@@ -15,6 +15,6 @@ npm install
 npm run dev
 ```
 
-For deployment, run `npm run build` for the frontend and `npm run start:server` for the API. Configure the deployment platform to route `/api` requests to the API server, and provide the same `MAIL_*` environment variables through its secret settings.
+On Vercel, `api/contact.js` handles `POST /api/contact`. Add `MAIL_HOST`, `MAIL_PORT`, `MAIL_USER`, `MAIL_PASS`, and `MAIL_TO` to the project's Environment Variables, then redeploy. The function applies a five-request per 15-minute in-memory limit per client IP on each warm instance. Vercel may run multiple or newly started instances, so this is best-effort protection rather than a globally shared limit; use a shared rate-limit store or Vercel-level protection if a strict global limit is required.
 
-The API limits contact submissions to five per IP address every 15 minutes.
+Local development continues to use the Express API, which limits contact submissions to five per IP address every 15 minutes.
